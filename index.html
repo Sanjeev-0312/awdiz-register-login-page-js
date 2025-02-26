@@ -9,17 +9,38 @@
 <body>
     <div id="root">
         <div id="form">
-            <form action="form" id="first">
+            <form action="" id="first">
                 <h3>Register</h3> 
-                <input class="name" style="width: 355px; height: 25px; " type="text" placeholder="Enter Full Name"> <br>
-                <input class="name" style="width: 355px; height: 25px; " type="email" placeholder="Enter Email"> <br>
-                <input class="name" style="width: 355px; height: 25px; " type="password" placeholder="Enter Password"><br>
-                <button>Register</button><br>
-                <p style="font-size: 17px; font-weight: 700; font-family: sans-serif; margin-left: 15px;">All Ready Have an Account ? <a style=" text-decoration: none;" href="#">login</a></p>
+                <input id="regName" style="width: 355px; height: 30px; " type="text" placeholder="Enter Full Name"> <br>
+                <input id="regEmail" style="width: 355px; height: 30px; " type="email" placeholder="Enter Email"> <br>
+                <input id="regPassword" style="width: 355px; height: 30px; " type="password" placeholder="Enter Password"><br>
+                <button onclick="registerUser()">Register</button> <br>
+                <p style="font-size: 17px; font-weight: 700; font-family: sans-serif; margin-left: 15px;">Already Have an Account ? <a style=" text-decoration: none;" href="login.html">login</a></p>
             </form>
 
         </div>
     </div>
+<script>
+    function registerUser() {
+    let name = document.getElementById("regName").value;
+    let email = document.getElementById("regEmail").value;
+    let password = document.getElementById("regPassword").value;
+    
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    
+    let userExists = users.some(user => user.email === email);
+    if (userExists) {
+        alert("Email already exists. Please login or use another email.");
+        return;
+    }
+    window.location.href = "login.html";
+    
+    users.push({ name, email, password });
+    localStorage.setItem("users", JSON.stringify(users));
+    alert("Registration successful! You can now login.");
+    
+}</script>
+   
     
 </body>
 </html>
