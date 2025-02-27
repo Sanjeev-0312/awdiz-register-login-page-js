@@ -5,9 +5,14 @@
 
 #root{
     width: 100%;
+<<<<<<< Updated upstream
     height: 1000px;
     border: px solid rgb(247, 244, 244);
     box-shadow: 10px 10px lightblue;
+=======
+    height: 580px;
+    border: 1px solid black;
+>>>>>>> Stashed changes
     display: flex;
     align-items: center;
     justify-content: center;
@@ -16,8 +21,13 @@
     border:.5px solid rgb(167, 162, 162);
     box-shadow: 10px 10px lightblue;
     border-radius: 8px;
+<<<<<<< Updated upstream
     width:450px;
     height: 440px;
+=======
+    width: 30%;
+    height: 410px;
+>>>>>>> Stashed changes
     display: flex;
     justify-content: center;
 
@@ -36,6 +46,7 @@
     text-align: center;
     font-size: 30px;
 }
+<<<<<<< Updated upstream
 #regName,#regEmail,#regPassword{
     height: 30px;
     box-shadow: 0.5px slategray;
@@ -43,11 +54,18 @@
     border-radius: 8px;
     
 
+=======
+.name{
+    margin-top:30px;
+    margin-bottom: px;
+    border-radius: 6px;
+>>>>>>> Stashed changes
 }
 
 #first button{
     width: 200px;
     height: 30px;
+<<<<<<< Updated upstream
     border-radius: 10px;
     margin-left: 10px;
     margin-top:25px;
@@ -78,3 +96,11 @@
      margin: auto;
      margin-top: 40px;
 }
+=======
+    border-radius: 8px;
+    margin-left: 40px;
+    margin-top:30px;
+    background-color: rgb(207, 171, 241);
+}
+
+>>>>>>> Stashed changes
