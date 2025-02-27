@@ -9,21 +9,21 @@
 <body>
 <div id="home">
    <div id="header">
-          <h3>Welcome to Our Store</h3>
-          <button onclick="logoutUser()">Logout</button>
+          <h3 style="font-size:35px;">Welcome to Our Store</h3>
+          <button onclick="logoutUser()" style="width: 145px; height: 35px; font-size: 18px; font-family: sans-serif; background-color: rgb(197, 225, 233);">Logout</button>
       </div>
    <div id="homePage">
        <h1 style="text-align: center;">Product Show</h1>
     
-           <input id="productName" style="margin: auto; display: block; width: 350px; height: 35px; border-radius: 10px; margin-top: 40px; " type="text" placeholder="Product Name" ><br>
-           <input id="productPrice" style="margin: auto; display: block;  width: 350px; height: 35px; border-radius: 10px; margin-top: 15px;" type="number" placeholder="Price" ><br>
-          <input id="productCategory" style="margin: auto; display: block;  width: 350px; height: 35px; border-radius: 10px; margin-top: 15px;" type="text" placeholder="Category" ><br>
-          <input id="productFile" style="margin: auto; display: block;  width: 350px; height: 35px; border-radius: 10px; margin-top: 15px;" type="file" accept="image/*">
+           <input id="productName" style="margin: auto; display: block; width: 90%; height: 35px; border-radius: 10px; margin-top: 40px;padding: 5px; " type="text" placeholder="Product Name" ><br>
+           <input id="productPrice" style="margin: auto; display: block;  width: 90%; height: 35px; border-radius: 10px; margin-top: 15px; padding: 5px;" type="number" placeholder="Price" ><br>
+          <input id="productCategory" style="margin: auto; display: block;  width: 90%; height: 35px; border-radius: 10px; margin-top: 15px; padding: 5px;" type="text" placeholder="Category" ><br>
+          <input id="productFile" style="margin: auto; display: block;  width: 90%; height: 35px; border-radius: 10px; margin-top: 15px;padding: 5px;" type="file" accept="image/*">
 
-            <button style="width: 120px; height: 30px; margin: auto; display: block;   " onclick="addProduct()">Add Product</button>
+            <button style="width: 120px; height: 30px; margin: auto; display: block; border-radius: 8px;background-color: azure; " onclick="addProduct()">Add Product</button>
    </div>
-   <h2>All Products</h2>
-    <div id='productsContainer'></div>
+   <!-- <h2>All Products</h2> -->
+    <div id='productsContainer' style="border: 1px solid grey; border-radius: 10px; display: flex; flex-wrap: wrap; margin-top: 40px;  margin-left: 5px; justify-content: space-around;" ></div>
 </div>
 <script>
  
@@ -57,7 +57,7 @@
          
         products.forEach(product => {
             let div = document.createElement("div");
-            div.innerHTML = `<h1>${product.name}</h1><img src="${product.img}" alt="${product.name}" style="width:340px; height:200px;"><p>Price: $${product.price}</p><p>Category: ${product.category}</p>`;
+            div.innerHTML = `<h1>${product.name}</h1><img src="${product.img}" alt="${product.name}" style="width:340px; height:auto; border:1px solid black;"><p>Price: $${product.price}</p><p>Category: ${product.category}</p>`;
             container.appendChild(div);
         });
     }

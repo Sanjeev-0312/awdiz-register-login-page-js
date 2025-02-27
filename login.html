@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,6 +56,65 @@
 
         
     
+    </script>      
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register & Login</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div id="root">
+        <div id="form">
+            <form id="first" onsubmit="loginUser(event)">
+                <h3>Login</h3> 
+                <input id="loginEmail" style="width: 355px; height: 30px; border-radius: 8px;" type="email" placeholder="Enter Email" required> <br>
+                <input id="loginPassword" style="width: 355px; height: 30px; border-radius: 8px" type="password" placeholder="Enter Password" required><br>
+                <button type="submit">Login</button><br>
+                <p style="font-size: 17px; font-weight: 700; font-family: sans-serif; margin-left: 15px;">
+                    Already Have an Account? 
+                    <a style="text-decoration: none;" href="index.html">Register</a>
+                </p>
+            </form>
+        </div>
+        <p id="currentUser"></p>
+    </div>
+
+    <script>
+        function loginUser(event) {
+            event.preventDefault(); // Prevent form from submitting
+
+            let email = document.getElementById("loginEmail").value;
+            let password = document.getElementById("loginPassword").value;
+            
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            
+            let user = users.find(user => user.email === email && user.password === password);
+            if (user) {
+                localStorage.setItem("currentUser", JSON.stringify({ name: user.name, email: user.email }));
+                
+                alert("Login successful! Welcome, " + user.name);
+                window.location.href = "home.html"; // Redirect to home page
+            } else {
+                alert("Login failed! Incorrect email or password.");
+            }
+        }
+
+        // function getCurrentUser() {
+        //     let currentUser = JSON.parse(localStorage.getItem("currentUser"));
+        //     document.getElementById("currentUser").innerText = currentUser ? "Logged in as: " + currentUser.name : "No user is logged in";
+        // }
+
+        window.onload = getCurrentUser;
     </script>      
 </body>
 </html>
