@@ -9,19 +9,22 @@
 <body>
     <div id="root">
         <div id="form">
-            <form action="" id="first">
-                <h3>Register</h3> 
-                <input id="regName" style="width: 355px; height: 30px; " type="text" placeholder="Enter Full Name"> <br>
-                <input id="regEmail" style="width: 355px; height: 30px; " type="email" placeholder="Enter Email"> <br>
-                <input id="regPassword" style="width: 355px; height: 30px; " type="password" placeholder="Enter Password"><br>
+            <form  id="first">
+                <h3 style="margin-bottom: 30px;">Register</h3>   
+                <input id="regName" style="width: 90%; height: 30px; " type="text" placeholder="Enter Full Name"> <br>
+                <input id="regEmail" style="width: 90%; height: 30px; " type="email" placeholder="Enter Email"> <br>
+                <input id="regPassword" style="width: 90%; height: 30px; " type="password" placeholder="Enter Password"><br>
                 <button onclick="registerUser()">Register</button> <br>
-                <p style="font-size: 17px; font-weight: 700; font-family: sans-serif; margin-left: 15px;">Already Have an Account ? <a style=" text-decoration: none;" href="login.html">login</a></p>
+                <p style="font-size: 17px; font-weight: 700; font-family: sans-serif; margin-left: 15px; margin-top: 20px;">Already Have an Account ? <a style=" text-decoration: none;" href="login.html">login</a></p>
             </form>
 
         </div>
     </div>
 <script>
     function registerUser() {
+
+        event.preventDefault(); 
+
     let name = document.getElementById("regName").value;
     let email = document.getElementById("regEmail").value;
     let password = document.getElementById("regPassword").value;
@@ -32,15 +35,16 @@
     if (userExists) {
         alert("Email already exists. Please login or use another email.");
         return;
-    }
-    window.location.href = "login.html";
-    
-    users.push({ name, email, password });
+    }else {
+        users.push({ name, email, password });
     localStorage.setItem("users", JSON.stringify(users));
     alert("Registration successful! You can now login.");
-    
-}</script>
-   
-    
+    window.location.href = "login.html";
+}
+
+// window.location.href = "login.html";
+
+}
+</script>
 </body>
 </html>

@@ -1,68 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register & Login</title>
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
-    <div id="root">
-        <div id="form">
-            <form  id="first">
-                <h3>Login</h3> 
-                <input id="loginEmail" style="width: 355px; height: 30px; border-radius: 8px; " type="email" placeholder="Enter Email"> <br>
-                <input id="loginPassword" style="width: 355px; height: 30px; border-radius: 8px" type="password" placeholder="Enter Password"><br>
-                <button onclick="loginUser()">Login</button><br>
-                <p style="font-size: 17px; font-weight: 700; font-family: sans-serif; margin-left: 15px;">All Ready Have an Account ? <a style=" text-decoration: none;" href="index.html">Register</a></p>
-            </form>
-
-
-        </div>
-        <P id="currentUser"></P>
-    </div>
-
-    <script>
-        
-         function loginUser() {
-            let email = document.getElementById("loginEmail").value;
-            let password = document.getElementById("loginPassword").value;
-            
-            let users = JSON.parse(localStorage.getItem("users")) || [];
-            
-            let user = users.find(user => user.email === email && user.password === password);
-            if (user) {
-                localStorage.setItem("currentUser", JSON.stringify({ name: user.name, email: user.email }));
-                document.getElementById("currentUser").innerText = "Logged in as: " + user.name;
-                
-                alert("Login successful! Welcome, " + user.name);
-                window.location.href = "home.html";
-                
-              
-            } else {
-                alert("Login failed! Incorrect email or password.");
-            }
-          
-          
-        }
-        
-        function getCurrentUser() {
-            let currentUser = JSON.parse(localStorage.getItem("currentUser"));
-            // document.getElementById("currentUser").innerText = currentUser ? "Logged in as: " + currentUser.name : "No user is logged in";
-                  
-        }
-        window.onload = getCurrentUser;
-       
-
-        
-    
-    </script>      
-</body>
-</html> -->
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -91,7 +26,7 @@
 
     <script>
         function loginUser(event) {
-            event.preventDefault(); // Prevent form from submitting
+            event.preventDefault(); 
 
             let email = document.getElementById("loginEmail").value;
             let password = document.getElementById("loginPassword").value;
@@ -103,7 +38,7 @@
                 localStorage.setItem("currentUser", JSON.stringify({ name: user.name, email: user.email }));
                 
                 alert("Login successful! Welcome, " + user.name);
-                window.location.href = "home.html"; // Redirect to home page
+                window.location.href = "home.html"; 
             } else {
                 alert("Login failed! Incorrect email or password.");
             }
